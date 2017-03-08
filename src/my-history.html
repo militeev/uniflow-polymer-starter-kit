@@ -30,7 +30,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <div class="card">
       <h1>Navigation history</h1>
-      
+
+      <!-- AM: For small application I believe it's fine to access application state directly 
+           AM: from state-aware elements. For more complex application I would pass 
+           AM: major data to an element as input, or have state-path set. 
+           AM: Accessing state.* is fine for small pieces of data that element might need
+           AM: to be aware of, and which you don't want to pass from top level all the way down.
+           AM: No need to change here though, perfectly fine for a sample app...
+      -->
       <template is="dom-repeat" items="[[state.history]]" as="item">
         <paper-item>
           [[item]]

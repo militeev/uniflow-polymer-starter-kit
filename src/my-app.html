@@ -138,6 +138,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.set('page', newRoute.page || 'view1');
         this.emitAction({
           type: myApp.actions.ROUTE_CHANGED,
+          // AM: Here I would put route: newRoute instead, just based on action name
           pageId: this.page,
         });
         if (!this.$.drawer.persistent) {
@@ -145,6 +146,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         }
       },
 
+      // AM: have you considered moving this functionality to action dispatcher?
+      // AM: In larger application I would envision having special route-action-dispatcher
+      // AM: responsible for handling route changes.
       _pageChanged: function(page) {
         // console.debug("[my-app] _pageChanged", page);
         // Load page import on demand. Show 404 page if fails
